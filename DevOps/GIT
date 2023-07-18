@@ -1,0 +1,131 @@
+Git Architecture:
+
+Git is a distributed version control system. In Git, every repository is a complete backup of all the data, including the entire history of all changes. Each local repository contains a full copy of the project, including all versions of all files. The repository contains the entire history of the project, making it possible to go back to a previous version at any time. When changes are made to the code and committed, they are stored in the local repository. Git then provides tools to share and merge changes between different local repositories. The Git architecture provides robustness, efficiency, and decentralization, making it ideal for distributed software development.
+---------------------------------------------------------------------------
+Git rebase:
+Git rebase is a Git command that allows you to reapply a series of commits to a different base branch. It can be used to clean up a messy commit history, to integrate changes from one branch into another, or to move a series of commits to a new base.
+
+Rebasing works by taking a set of commits, usually from a feature branch, and reapplying them on top of a different branch. This can result in a linear history, where all the changes related to a feature are grouped together.
+
+It is important to note that rebasing changes the commit history and can lead to conflicts if the base branch has been modified since the original branch was created. It is recommended to use rebasing only in local branches and not in shared branches, as it can confuse other team members and cause problems when merging.
+----------------------------------------------------------------------------
+GIT revert:
+Git revert is a command that allows you to undo changes in a specific commit. It creates a new commit that undoes the changes made in a previous commit, effectively rolling back the repository to a previous state. The original commit remains in the history of the repository, but its changes are no longer present in the latest version of the code.
+
+The git revert command is useful when you want to undo changes in a specific commit without affecting the rest of the history. It is a safer option than using git reset, which permanently discards commits and their changes.
+
+To revert a specific commit, you need to specify the commit hash or reference to the commit in question. Git will then create a new commit that undoes the changes made in the specified commit, leaving the rest of the history intact.
+----------------------------------------------------------------------------
+What is Git, and why is it used?
+
+Git is a distributed version control system used for tracking changes in files and coordinating work among multiple contributors. It allows for efficient collaboration, branching, merging, and version control of code and project files.
+
+Explain the difference between Git and GitHub.
+
+Git is the version control system itself, while GitHub is a web-based hosting service for Git repositories. Git is used for local version control, whereas GitHub provides a platform for remote collaboration, code hosting, and additional features like issue tracking, pull requests, and project management.
+
+What is a repository in Git?
+
+A repository, often referred to as a "repo," is a central location where Git stores all the files, history, and branches associated with a project. It contains the complete history of changes made to the project, allowing users to track, manage, and collaborate on the codebase.
+
+What are the different Git workflows you are familiar with?
+
+Some common Git workflows include:
+Centralized Workflow: Uses a central repository where all developers directly commit their changes.
+Feature Branch Workflow: Each feature or task is developed in a dedicated branch, and changes are merged back into the main branch.
+Gitflow Workflow: Defines a strict branching model with separate branches for features, releases, and hotfixes.
+Forking Workflow: Contributors fork the main repository, make changes in their own copies, and submit pull requests to merge their changes into the main repository.
+
+How do you create a new branch in Git?
+
+To create a new branch in Git, you can use the command git branch <branch-name>. For example, to create a branch called "feature-branch," you would use git branch feature-branch. To switch to the newly created branch, you can use git checkout <branch-name> or combine the creation and checkout with git checkout -b <branch-name>.
+
+What is the difference between 'git pull' and 'git fetch'?
+
+git pull is a command that fetches the latest changes from a remote repository and automatically merges them into the current branch. It is essentially a combination of git fetch and git merge.
+git fetch retrieves the latest changes from a remote repository but does not automatically merge them. It updates the remote-tracking branches, allowing you to review the changes before merging or rebasing.
+
+How do you resolve a merge conflict in Git?
+
+To resolve a merge conflict in Git, you need to manually edit the conflicting files to resolve the differences. After resolving the conflicts, you need to stage the changes using git add and then commit the changes to complete the merge.
+
+How do you revert a commit in Git?
+
+To revert a commit in Git, you can use the command git revert <commit-id>. This creates a new commit that undoes the changes introduced by the specified commit. Alternatively, you can use git reset or git cherry-pick to selectively remove or apply specific commits.
+
+Explain the difference between a Git merge and a Git rebase.
+
+In Git, a merge integrates changes from different branches into the current branch, creating a new merge commit. It combines the commit history of the merged branches and preserves their individual commits.
+A rebase, on the other hand, moves or combines a sequence of commits to a new base commit. It replays the commits from one branch onto another, resulting in a linear commit history.
+
+How do you squash multiple Git commits into a single commit?
+
+You can use the interactive rebase feature of Git to squash multiple commits into a single commit. The command git rebase -i HEAD~<number-of-commits> opens an interactive rebase editor, where you can choose to squash or fixup commits by modifying the respective lines.
+
+What are Git hooks, and how do you use them?
+
+Git hooks are scripts that are triggered at specific points in the Git workflow. They allow you to automate or customize actions before or after certain Git events, such as committing, pushing, or merging. Git hooks are located in the .git/hooks directory of a Git repository, and you can write custom scripts in various programming languages to perform specific tasks.
+
+How do you revert a file to a specific commit in Git?
+
+To revert a file to a specific commit in Git, you can use the command git checkout <commit-id> -- <file-path>. This retrieves the version of the file from the specified commit and replaces the current version with it.
+Explain the Git commands 'git stash' and 'git stash apply'.
+
+git stash is used to temporarily save changes that are not ready to be committed yet. It creates a new stash and reverts the working directory to the last committed state.
+git stash apply reapplies the most recent stash while keeping the stash intact. This allows you to retrieve the saved changes and continue working on them.
+
+What is Git cherry-picking, and when would you use it?
+--------------------------------------------
+Git cherry-picking is the process of applying a specific commit from one branch to another. It allows you to select and apply individual commits without merging entire branches. Cherry-picking is useful when you want to include specific changes from one branch into another branch.
+
+How do you tag a specific commit in Git?
+
+To tag a specific commit in Git, you can use the command git tag <tag-name> <commit-id>. This creates a new tag with the specified name at the given commit.
+
+Explain the difference between a Git commit and a Git branch.
+
+A Git commit represents a specific version of the codebase at a given point in time. It contains a snapshot of the project files and metadata like author, timestamp, and commit message.
+A Git branch is a pointer to a specific commit in the commit history. It represents an independent line of development and allows for parallel development and isolation of changes.
+
+How do you delete a branch in Git?
+
+To delete a branch in Git, you can use the command git branch -d <branch-name>. This removes the specified branch if it has been merged into other branches. To force delete a branch, even if it is not fully merged, you can use git branch -D <branch-name>.
+
+What is Git rebase, and how does it work?
+
+Git rebase is a command that allows you to change the base commit of a branch. It moves or combines a sequence of commits onto a new base commit. It achieves this by identifying the common ancestor of the branch and the new base commit, applying the changes introduced by the commits one by one, and creating new commits on top of the new base.
+
+Explain the concept of Git submodules.
+
+Git submodules are a way to include one Git repository as a subdirectory within another Git repository. Submodules allow you to manage and version control external dependencies or reusable components as separate repositories while including them in a larger project.
+
+How do you configure and use Git aliases?
+
+Git aliases allow you to create custom shorthand commands for frequently used Git operations. They can save you time and make your Git workflow more efficient. Here's how you can configure and use Git aliases:
+
+Configuring Git Aliases:
+
+Open a terminal or command prompt and enter the following command to open the global Git configuration file in your default text editor:
+
+git config --global --edit
+Alternatively, you can manually edit the configuration file located at ~/.gitconfig on Linux/Mac or C:\Users\<username>\.gitconfig on Windows.
+Inside the configuration file, under the [alias] section, you can define your aliases using the following syntax:
+
+alias-name = Git command
+For example, to create an alias for git status command, you can add the following line:
+
+[alias]
+    st = status
+Save the file to apply the changes.
+Using Git Aliases:
+
+Once you have defined aliases, you can use them in the same way you use regular Git commands.
+Open a terminal or command prompt and enter the alias name followed by any additional arguments, if applicable.
+For example, if you defined the st alias for git status, you can now use git st to execute the status command.
+Git aliases can also accept arguments. For instance, if you have an alias co for checkout, you can use it like git co <branch-name> to check out a specific branch.
+Viewing Git Aliases:
+
+To view a list of your defined aliases, run the following command in the terminal:
+
+git config --global --get-regexp alias
+This command will display all the aliases and their corresponding Git commands.
