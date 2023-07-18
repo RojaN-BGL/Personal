@@ -1,5 +1,5 @@
 Kubernetes Architecture:
-
+-
 Kubernetes is an open-source platform for automating deployment, scaling, and management of containerized applications. The Kubernetes architecture consists of a set of components that work together to provide a platform for deploying, scaling, and operating application containers:
 
 API Server: The API Server is the core component that exposes the Kubernetes API and provides a centralized configuration store for all other components.
