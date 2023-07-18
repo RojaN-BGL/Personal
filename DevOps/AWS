@@ -1,4 +1,4 @@
------------------------------------------------------------
+----------------------------------------------------------
 Amazon CloudWatch is a monitoring and observability service provided by Amazon Web Services (AWS). It allows you to collect and track metrics, collect and monitor log files, and set alarms for specific events or thresholds. CloudWatch provides valuable insights into your AWS resources and applications, enabling you to troubleshoot issues, optimize performance, and ensure the availability of your infrastructure.
 
 Here are some key features and components of CloudWatch:
