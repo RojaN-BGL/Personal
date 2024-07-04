@@ -1,0 +1,18 @@
+Kubernetes:
+kubectl get namespace =it will list the all name spaces
+kubectl get pods -n namespace =it will list all the pods in the name spaces
+kubectl delete pod podname -n namespace = it will restart the pod 
+kubectl logs -f podname -n namespace = it will list the pod log details to check errors
+kubectl scale --replicas=0 deployment deploymentname -n namespace =it will scale down pod to 0 
+kubectl scale --replicas=1 deployment deploymentname -n namespace =it will scale up pod to 1 to 1000
+
+docker:
+docker images  =it will list all the images 
+docker ps = it will list all the docker running container
+docker ps -a = it will list all the running and stopped container details
+docker rmi -f image id =it will remove the docker images 
+docker start container id = it will strt the container 
+docker stop container id = it will stop the container
+docker rm container id = it will remove the container
+docker exec -it container id bash =it will go inside the container
+
